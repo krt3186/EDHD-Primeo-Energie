@@ -1,0 +1,33 @@
+[tool.poetry]
+name = "EDHD Primeo"
+version = "0.1.0"
+description = ""
+authors = ["KRT3186 <t.kropp@primeo-energie.ch>"]
+readme = "readme.md"
+# Important: use `package-mode = false` if the repository
+# is not an installable package.
+package-mode = false
+
+packages = [
+    { include = "src" }
+]
+
+[tool.poetry.dependencies]
+ipython = "^8.16.1"
+ipykernel = "^6.25.2"
+python = "^3.12"
+flask = "3.1.0"
+requests = "2.32.3"
+pytest = "8.3.3"
+pydantic = "^2.10.3"
+pandas = "^2.2.3"
+gunicorn = "^23.0.0"
+jupyterlab = "^4.4.5"
+numpy = "^2.3.0"
+pandas = "^2.3.1"
+scikit-learn = "^1.7.1"
+searborn = "^0.13.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,11 @@
+# Python
+__pycache__/
+
+# Virtual Environment (poetry)
+.venv
+
+# testing
+.pytest_cache
+
+#local test files
+#local/
