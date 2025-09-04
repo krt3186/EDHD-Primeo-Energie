@@ -1,0 +1,3 @@
+folium
+openpyxl
+nbformat>=5.0
