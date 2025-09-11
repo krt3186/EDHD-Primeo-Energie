@@ -1,0 +1,21 @@
+# Data parameters for PV forecasting
+train_start_date: "2020-01-01"
+train_end_date: "2024-12-31"
+test_start_date: "2025-01-01"
+test_end_date: "2025-08-31"
+datetime_column: "timestamp"
+target_column: "pv_feed_in"
+min_lag: 1
+max_lag: 8  # 1 to 8 intervals (15min each)
+rolling_window: 4  # 1 hour rolling window
+pv_data:
+  input_path: "data/fake_pv_feed_in.csv"
+  save_path: "data/pv_feed_in_fe.csv"
+weather_data:
+  input_path: "data/fake_weather_data.csv"
+  save_path: "data/weather_data_fe.csv"   # Not used in current implementation
+  feature_cols:
+    - "ghi"
+    - "cloud_cover"
+    - "temperature"
+feature_table_save_path: "data/pv_feature_table.csv"

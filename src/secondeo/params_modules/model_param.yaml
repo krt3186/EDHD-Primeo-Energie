@@ -1,0 +1,154 @@
+# This file contains the hyperparameters for the forecasting models.
+ARIMA:
+  p: 
+    min: 0
+    max: 4
+    default: 1
+  d: 
+    min: 0
+    max: 1
+    default: 1
+  q: 
+    min: 0
+    max: 5
+    default: 1
+  n_trials: 10
+SARIMAX:
+  p: 
+    min: 0
+    max: 4
+    default: 1
+  d: 
+    min: 0
+    max: 1
+    default: 1
+  q: 
+    min: 0
+    max: 5
+    default: 1
+  P: 
+    min: 0
+    max: 2
+    default: 1
+  D: 
+    min: 0
+    max: 1
+    default: 1
+  Q: 
+    min: 0
+    max: 2
+    default: 1
+  s: 96  # e.g., around daily for 15-min resolution
+  n_trials: 10
+LGBM:
+  basic_params:
+    objective: 
+      value: 'regression'
+    metric: 
+      value: 'rmse'
+    boosting_type: 
+      value: 'gbdt'
+  int_params:
+    num_leaves: 
+      name: num_leaves
+      min: 20
+      max: 150
+      step: 5
+      default: 31
+    max_depth: 
+      name: max_depth
+      min: 3
+      max: 15
+      step: 1
+      default: 10
+    n_estimators: 
+      name: n_estimators
+      min: 50
+      max: 500
+      step: 50
+      default: 100
+    min_child_samples: 
+      name: min_child_samples
+      min: 5
+      max: 50
+      step: 5
+      default: 20
+    bagging_freq: 
+      name: bagging_freq
+      min: 1
+      max: 10
+      step: 1
+      default: 5
+  float_params:
+    learning_rate:
+      name: learning_rate
+      min: 0.01
+      max: 0.3
+      step: 0.01
+      default: 0.1
+    
+    feature_fraction: 
+      name: feature_fraction
+      min: 0.5
+      max: 1.0
+      step: 0.01
+      default: 0.8
+    bagging_fraction: 
+      name: bagging_fraction
+      min: 0.5
+      max: 1.0
+      step: 0.01
+      default: 0.8
+  n_trials: 10
+LSTM:
+  hyperspace:
+    basic_params:
+      epochs: 
+        value: 50
+      batch_size: 
+        value: 64
+      input_dim: 
+        value: 17  # to be set dynamically
+      output_dim: 
+        value: 1  # to be set dynamically
+    int_params:
+      hidden_dim: 
+        name: hidden_dim
+        min: 32
+        max: 256
+        step: 32
+      num_layers: 
+        name: num_layers
+        min: 1
+        max: 4
+        step: 1
+    float_params:
+      dropout: 
+        name: dropout
+        min: 0.01
+        max: 0.5
+        step: 0.01
+      learning_rate: 
+        name: learning_rate
+        min: 0.001
+        max: 0.1
+        step: 0.01
+  defaults:
+    epochs: 50
+    batch_size: 64
+    hidden_dim: 128
+    num_layers: 2
+    dropout: 0.2
+    learning_rate: 0.001
+  n_trials: 2
+  patience: 10
+  val_size: 0.2
+  random_state: 42
+  epochs: 50  # not optimal location...
+  batch_size: 64  # not optimal location...
+  input_dim: 17  # to be set dynamically
+  output_dim: 1  # to be set dynamically
+  hidden_dim: 128  # not optimal location...
+  num_layers: 2  # not optimal location...
+  dropout: 0.2  # not optimal location...
+  learning_rate: 0.001  # not optimal location...
